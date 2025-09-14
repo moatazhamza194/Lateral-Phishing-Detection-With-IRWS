@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "Lateral Phishing Detection with Interactive Reflection Warning System",
+  "version": "1.0",
+  "description": "Detect, flag, and reflect on suspicious emails to stop lateral phishing — with interactive warnings that guide safer choices.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "file:///*",
+    "http://localhost:5000/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["file:///*", "https://mail.google.com/*"],
+      "js": ["content.js"],
+      "css": ["overlay.css"],
+      "run_at": "document_end"
+    }
+  ],
+
+   "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "action": {
+      "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    },
+    "default_title": "Lateral Phishing Detector"
+  },
+
+  "web_accessible_resources": [{
+  "resources": ["icon16.png", "icon48.png", "icon128.png"],
+  "matches": ["<all_urls>"]
+}]
+
+  
+  
+}

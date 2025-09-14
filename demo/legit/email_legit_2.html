@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gmail Visual Mock - Enron Email</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body.email {
+      background: url('gmail-screenshot.png') no-repeat center top;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body class="email">
+  <!-- ✅ Top-right user avatar with status -->
+  <div class="user-avatar-wrapper">
+    <div class="user-avatar">
+      <span id="userInitial">I</span>
+      <div class="status-dot"></div>
+    </div>
+  </div>
+
+  <div class="email-container">
+    <h1 class="subject">RE: Dynegy Promotes Matt Schatzman to President...</h1>
+
+    <div class="sender-info">
+      <!-- Sender avatar -->
+      <div class="avatar">C</div>
+
+      <div class="sender-meta">
+        <div class="sender-row">
+          <strong>chris.germany@enron.com</strong>
+          <span class="timestamp">2002-01-16 10:50:03</span>
+        </div>
+        <div class="receiver-name">to Ingrid</div>
+        <span class="material-icons dropdown-toggle" onclick="toggleDetails()">expand_more</span>
+
+        <div id="email-details" class="email-details">
+          <p><strong>from:</strong> chris.germany@enron.com</p>
+          <p><strong>to:</strong> ingrid.immer@williams.com</p>
+          <p><strong>date:</strong> 2002-01-16 10:50:03</p>
+          <p><strong>subject:</strong> RE: Dynegy Promotes Matt Schatzman to President...</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="email-body">
+      I just tried to call you and no one answered the phone.<br />
+      You might want to check the update at 
+      <a href="http://www.dynegy.com">http://www.dynegy.com</a>.
+    </div>
+
+    <hr />
+
+    <div class="email-actions">
+      <button>Reply</button>
+      <button>Reply all</button>
+      <button>Forward</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleDetails() {
+      const box = document.getElementById('email-details');
+      const icon = document.querySelector('.dropdown-toggle');
+      box.style.display = box.style.display === 'block' ? 'none' : 'block';
+      icon.textContent = box.style.display === 'block' ? 'expand_less' : 'expand_more';
+    }
+
+    // Set user initial in top-right avatar dynamically
+    const userEmail = 'ingrid.immer@williams.com';
+    document.getElementById('userInitial').textContent = userEmail.charAt(0).toUpperCase();
+  </script>
+</body>
+</html>
